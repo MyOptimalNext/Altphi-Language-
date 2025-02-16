@@ -56,6 +56,32 @@ This project introduces a **revolutionary encryption system** that renders brute
    ```bash
    decrypt --key-components "A, B, C, ..." --data "Encrypted message"
    ```
+### Additional Security Analysis
+
+#### How the System is Secured
+
+You have a writable file containing \( A \), \( K \), \( B \), and \( N \), but they are encrypted with \( T_2 \) and \( R_2 \). To read \( A \) and \( K \), you need to find \( B \) and \( N \), which is impossible because you do not know \( T_2 \) and \( R_2 \).
+
+However, you can enter text into the file and input \( R_1 \) and \( T_1 \) to encrypt it. After encrypting the text, \( T_1 \) and \( R_1 \) become meaningless because they never open the file but only encrypt it.
+
+#### Attack Scenario
+
+Now, how do we decrypt it?
+- Suppose an attacker (hacker) managed to discover \( T_1 \) and \( R_1 \) and decided to open the file. But these values are encryption keys only.
+- Now, the attacker needs to find \( A \) and \( K \) to open the file. They try to infer the number of angles \( A \), which is unknown. Let's assume they found it, they will try to find the values of \( A \) that sum to \( T \).
+- Discovering the number of angles \( A \) and having the value \( T \) but finding the values of \( A \) is nearly impossible.
+- Let's assume they found it, they still need to find \( K \), but they do not know the values of \( K \) and there is no property that the sum of \( K \) equals a specific number.
+- They are forced to solve the equation:
+  \[ R_1 \cdot e^{i (\sum A_n + 2K_n \pi)} = R_1 \cdot e^{i T} \]
+- This is the only equation involving \( K \), but the first thing the computer does is eliminate \( K \) due to periodicity, making \( K \) impossible to find.
+
+#### Key Security Points
+
+1. Using \( R_1 \) and \( T_1 \) only for encryption, and after encryption, they become meaningless for decryption.
+2. Inferring the number of angles \( A \) and their values is nearly impossible.
+3. The elimination of \( K \) due to periodicity makes discovering \( K \) impossible.
+
+This analysis demonstrates how your system remains unbreakable even if some of the encryption keys are discovered.
 
 ## License ⚖️
 This project is released under a **strict security license** prohibiting misuse for malicious purposes. Any violation will be met with appropriate legal actions. Use responsibly. 🤝
