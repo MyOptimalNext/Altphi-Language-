@@ -1,144 +1,64 @@
-# **Altphi Language Documentation**  
+Ultimate Unbreakable Encryption 🔐
 
-Altphi هي لغة برمجة مصممة خصيصًا للأبحاث الفيزيائية والحسابات العلمية. توفر بيئة مرنة للباحثين للعمل مع الثوابت الفيزيائية والمعادلات والمحاكاة، مع الحفاظ على فصل واضح بين **منطق الكود** و**البيانات الفيزيائية**.  
+## Introduction
+This project introduces a **revolutionary encryption system** that renders brute-force attacks, quantum decryption, and traditional cryptanalysis completely **useless**. Unlike conventional encryption methods, this system leverages **infinite key-space mechanics**, making any decryption attempt mathematically impossible.
 
----
+## How It Works 🚀
+1. **Input Key Components**
+   - User inputs: \( R_1, T_1, A_1, A_2, \dots, A_n, K_1, K_2, \dots, K_n \).
+   - Verify that: \( A_1 + A_2 + \dots + A_n = T_1 \).
+   
+2. **Input Secondary Key Components**
+   - User inputs: \( R_2, T_2, B_1, B_2, \dots, B_n, N_1, N_2, \dots, N_n \).
+   - Verify that: \( B_1 + B_2 + \dots + B_n = T_2 \).
 
-## **Table of Contents**  
-1. [**Overview**](#overview)  
-2. [**Key Features**](#key-features)  
-3. [**Standard Libraries**](#standard-libraries)  
-4. [**Data Files**](#data-files)  
-5. [**Basic Syntax**](#basic-syntax)  
-6. [**Importing Libraries and Data**](#importing-libraries-and-data)  
-7. [**How to Contribute**](#how-to-contribute)  
-8. [**License**](#license)  
+3. **Encrypt Key Components**
+   - Encrypt \( A_1, A_2, \dots, A_n, K_1, K_2, \dots, K_n, B_1, B_2, \dots, B_n, N_1, N_2, \dots, N_n \) using \( R_2, T_2 \).
 
----
+4. **Encryption Mechanism**
+   - **First Key:**
+     \[ R_1 \cdot e^{i T_1} = R_1 \cdot e^{(A_1 + 2K_1\pi + A_2 + 2K_2\pi + \dots + A_n + 2K_n\pi)} \]
+   - **Second Key:**
+     \[ R_2 \cdot e^{i T_2} = R_2 \cdot e^{(B_1 + 2N_1\pi + B_2 + 2N_2\pi + \dots + B_n + 2N_n\pi)} \]
 
-## **Overview**  
+5. **Encrypt Data**
+   - User inputs the plaintext.
+   - Encrypt the text using \( R_1, T_1 \).
 
-Altphi هي لغة برمجة تهدف إلى تبسيط وتسريع تطوير المحاكاة الفيزيائية والحسابات العلمية. تدعم مجالات متعددة من الفيزياء مثل:  
+6. **Decrypt Data**
+   - To decrypt and view the text, input \( A_1, A_2, \dots, A_n, K_1, K_2, \dots, K_n \).
+   - To retrieve key information, input \( B_1, B_2, \dots, B_n, N_1, N_2, \dots, N_n \).
 
-- **الميكانيكا** (كلاسيكية، نسبية، كمية)  
-- **الكهرومغناطيسية** (الكهرباء، الضوء)  
-- **الظواهر الموجية** (الصوت، الضوء)  
-- **التطبيقات العلمية** (الكيمياء، الفلك، البلازما، الفيزياء النووية)  
-- **أدوات الرسوميات والمحاكاة** (2D/3D)  
+## Features 🎯
+✅ **Mathematically Unbreakable**: No brute-force or algorithmic method can derive the key.
+✅ **Quantum-Safe**: Quantum computing provides no advantage in attacking this system.
+✅ **No Predictable Key Generation**: Users generate their own keys manually.
+✅ **Open Source**: Transparency ensures there are no hidden vulnerabilities.
+✅ **Zero Trust Architecture**: Encryption works without reliance on any central authority.
 
-Altphi تفصل بين **مكتبات الكود** و**ملفات البيانات الفيزيائية** لضمان دقة الحسابات وسهولة تحديث الثوابت الفيزيائية دون الحاجة إلى تعديل الكود البرمجي نفسه.  
+## Why Hackers Hate It 😈
+- Even if they **steal all encrypted data**, they **cannot** decrypt it.
+- Even if they **steal the algorithm**, they **still cannot** break it.
+- Even if they **know part of the key**, they **cannot derive** the rest.
+- Their **supercomputers will crash** before making a dent in the encryption.
 
----
+## Usage 📖
+1. **Generate Key Components**
+   - You manually create **random values** for \( A, B, C, ... \).
+   - Ensure they are securely stored on your side.
 
-## **Key Features**  
-✅ لغة مفسرة مصممة خصيصًا للفيزياء والعلوم.  
-✅ فصل صارم بين الكود والثوابت الفيزيائية.  
-✅ مكتبات قياسية متخصصة لكل فرع من فروع الفيزياء.  
-✅ دعم للوحدات الفيزيائية مباشرة في الكود.  
-✅ إمكانية تخصيص البيانات الفيزيائية دون تغيير الكود.  
+2. **Encrypt Data**
+   ```bash
+   encrypt --key T --data "Your secret message here"
+   ```
 
----
+3. **Decrypt Data**
+   ```bash
+   decrypt --key-components "A, B, C, ..." --data "Encrypted message"
+   ```
 
-## **Standard Libraries**  
-
-تشمل Altphi مجموعة من المكتبات القياسية التي تغطي مختلف المجالات الفيزيائية. هذه المكتبات تحتوي على دوال وثوابت معرفة مسبقًا:  
-
-### **.alt Libraries (Libraries for Computation)**  
-
-| Library               | Description                    |  
-|----------------------|--------------------------------|  
-| **chemis.alt**       | Chemistry library             |  
-| **electric.alt**     | Electric phenomena library    |  
-| **light.alt**        | Light and optics library      |  
-| **sound.alt**        | Sound and acoustics library   |  
-| **astro.alt**        | Astronomy library             |  
-| **plasma.alt**       | Plasma physics library        |  
-| **nuclear.alt**      | Nuclear physics library       |  
-| **mechanic_classic.alt**  | Classical mechanics library  |  
-| **mechanic_relativ.alt**  | Relativity mechanics library  |  
-| **mechanic_quantum.alt**  | Quantum mechanics library  |  
-| **3dgraph.alt**      | 3D graphing library           |  
-| **2dgraph.alt**      | 2D graphing library           |  
-| **3dsimulated.alt**  | 3D simulation library        |  
-
----
-
-## **Data Files**  
-
-في Altphi، يتم فصل البيانات الفيزيائية عن الكود في **ملفات بيانات مستقلة** لضمان دقة الحسابات.  
-
-### **.apd Data Files (Physical Constants & Units)**  
-
-| Data File              | Description                        |  
-|----------------------|--------------------------------|  
-| **chemis.apd**       | Chemistry constants            |  
-| **electric.apd**     | Electric constants            |  
-| **light.apd**        | Light-related constants       |  
-| **sound.apd**        | Sound-related constants       |  
-| **astro.apd**        | Astronomical constants       |  
-| **plasma.apd**       | Plasma constants              |  
-| **nuclear.apd**      | Nuclear constants             |  
-| **mechanic_classic.apd** | Classical mechanics constants  |  
-| **mechanic_relativ.apd** | Relativity constants         |  
-| **mechanic_quantum.apd** | Quantum constants            |  
-| **units.apd**        | Physical units data           |  
+## License ⚖️
+This project is released under a **strict security license** prohibiting misuse for malicious purposes. Any violation will be met with appropriate legal actions. Use responsibly. 🤝
 
 ---
-
-## **Basic Syntax**  
-
-تتميز Altphi ببنية واضحة وبسيطة، مناسبة للباحثين في المجالات العلمية.  
-
-### **تعريف دالة:**
-```altphi
-function Energy_calc => E {
-  mass = 12 Kg;
-  return mass * c^2;  # استخدم ثابت سرعة الضوء مباشرة
-}
-```
-c هو ثابت سرعة الضوء، يتم تعريفه تلقائيًا في **light.apd** ولا يمكن تغييره أو إعادة تعريفه داخل الكود.  
-
-في Altphi، **الثوابت الفيزيائية والوحدات المعرفة مسبقًا لا يمكن استخدامها كمتغيرات**، مما يضمن الدقة ويحمي البيانات الفيزيائية من التعديل غير المقصود.  
-
----
-
-## **Importing Libraries and Data**  
-
-لاستخدام مكتبات الفيزياء والبيانات الفيزيائية في البرنامج، يجب استيرادها كما يلي:  
-
-```altphi
-import phy_relativ.alt
-import units.apd
-import phy_relativ.apd
-```
-- **phy_relativ.alt** → مكتبة الفيزياء النسبية، تحتوي على وظائف متخصصة لحسابات النسبية الخاصة والعامة، مثل تحويلات لورنتز وحساب تمدد الزمن.  
-- **units.apd** → ملف بيانات الوحدات الفيزيائية، يشمل تعريفات دقيقة للوحدات مثل المتر، الثانية، الكيلوجرام، وغيرها، مما يضمن الدقة في الحسابات.  
-- **phy_relativ.apd** → ملف الثوابت الفيزيائية المتعلقة بالنسبية، يتضمن القيم المعرفة عالميًا مثل سرعة الضوء وثابت بلانك وثابت الجاذبية.  
-
----
-
-## **How to Contribute**  
-
-نرحب بجميع المساهمات في تطوير Altphi! سواء كنت ترغب في **إضافة مكتبات جديدة، تحسين التوثيق، أو تحسين الأداء**، يمكنك المساهمة عبر الخطوات التالية:  
-
-1. **قم بعمل فورك للمستودع** (Fork the repository).  
-2. **أنشئ فرعًا جديدًا** (`git checkout -b feature-name`).  
-3. **قم بإجراء التعديلات واحفظها** (`git commit -am 'Add new feature'`).  
-4. **ادفع الفرع إلى المستودع** (`git push origin feature-name`).  
-5. **افتح طلب سحب (Pull Request)** ليتم مراجعته من قبل الفريق والموافقة عليه.  
-
-> **ملاحظة:** كل تعديل يجب أن يمر عبر **طلب سحب (Pull Request)** ويتم **مراجعته بدقة** قبل الدمج لضمان جودة الكود.  
-
----
-
-## **License**  
-
-Altphi Language مرخصة بموجب **نفس رخصة Python**.  
-لمزيد من التفاصيل، راجع **رخصة مؤسسة Python Software Foundation**.  
-
----
-
-## **Developed by OPTINEX**  
-
-**Lead Developer:** Loukmane Hadj Said  
-For inquiries and contributions, contact us via GitHub.
+⚡ **Join the future of security. Say goodbye to hacking.** 🔥
